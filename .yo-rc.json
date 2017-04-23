@@ -1,9 +1,9 @@
 {
   "generator-react-webpack": {
-    "appName": "react-rudux-todo",
+    "appName": "react-redux-todo",
     "style": "css",
     "cssmodules": true,
-    "postcss": true,
+    "postcss": false,
     "generatedWithVersion": 4
   }
 }
