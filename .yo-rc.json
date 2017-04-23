@@ -1,0 +1,9 @@
+{
+  "generator-react-webpack": {
+    "appName": "react-rudux-todo",
+    "style": "css",
+    "cssmodules": true,
+    "postcss": true,
+    "generatedWithVersion": 4
+  }
+}
