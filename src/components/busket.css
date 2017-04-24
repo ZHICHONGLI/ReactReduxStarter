@@ -1,0 +1,31 @@
+.busket-component {
+}
+#busket{
+  color: #069;
+  text-align: center;
+  font-size: 25px
+}
+
+.taskheader{
+  border: 2px dashed #fff;
+  border-radius: 5px;
+  font-size: 15px;
+  text-align: center;
+  color: #5274b7;
+  margin: 2px;
+}
+.taskheader .headernote{
+  font-size: 20px;
+  color: #000;
+  margin-top: -5px 
+}
+.taskbody{
+  margin: 5px;
+  background-color: #fff;
+  border-radius: 3px;
+  margin: 10px 2px 10px 2px
+}
+.taskfooter{
+  margin:5px;
+  text-align: center
+}
