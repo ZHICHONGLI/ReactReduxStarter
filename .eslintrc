@@ -17,6 +17,7 @@
     "react/jsx-space-before-closing": ["off"],
     "react/prefer-stateless-function": ["off"],
     "no-underscore-dangle": [ "error", { "allowAfterThis": true }],
+    "linebreak-style": ["error", "windows"],
     "import/no-unresolved": ["error", {
         "ignore": [
           "config",
