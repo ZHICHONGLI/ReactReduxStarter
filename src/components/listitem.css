@@ -1,0 +1,18 @@
+.listitem-component {
+  margin: 5px;
+  background-color: #e8ecf9;
+  border: 1px solid lightgreen
+}
+.vertical-center {
+  display: flex;
+  align-items: center;
+}
+.itemhead{
+  font-size: 15px;
+  color: #5274b7;
+  margin: 2px
+}
+.itembody{
+  font-size: 18px;
+  margin: 2px
+}

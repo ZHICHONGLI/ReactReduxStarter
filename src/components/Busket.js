@@ -1,10 +1,11 @@
 import React from 'react';
 import { connect} from 'react-redux';
 // import cssmodules from 'react-css-modules';
+import ListItem from './ListItem';
+
 require('./busket.css');
 
 class Busket extends React.Component {
-
   render() {
     return (
       <div className="busket-component">
@@ -21,7 +22,7 @@ class Busket extends React.Component {
         </div>
         <div className="row taskbody container-fluid">
           <div className="tasklist">
-            <p>EMPTY</p>
+            <ListItem />
           </div>
         </div>
         <div className="row taskfooter container-fluid">
@@ -37,4 +38,4 @@ Busket.displayName = 'Busket';
 Busket.propTypes = {};
 Busket.defaultProps = {};
 
-export default Busket;
+export default connect()(Busket);
