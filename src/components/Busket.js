@@ -2,14 +2,16 @@ import React from 'react';
 import { connect} from 'react-redux';
 // import cssmodules from 'react-css-modules';
 import ListItem from './ListItem';
+import actions from '../actions/itemAction';
+
 
 require('./busket.css');
 
 class Busket extends React.Component {
   render() {
-    let { state } = this.props;
+    let { state, actions } = this.props;
 
-    let mockState = {
+    const mockState = {
       isDoing: false,
       newItemId: 2,
       items: [
@@ -23,7 +25,7 @@ class Busket extends React.Component {
 
     state = mockState;
 
-    let stats = {
+    let status = {
       current: {
         qty: 0
       },
@@ -33,7 +35,7 @@ class Busket extends React.Component {
     };
     state.items.map((item) => {
       const selector = item.completed ? 'done' : 'current';
-      stats[selector].qty += 1;
+      status[selector].qty += 1;
     });
     return (
       <div className="busket-component">
@@ -41,20 +43,26 @@ class Busket extends React.Component {
         <div className="row taskheader">
           <div className="col-md-6">
             <p>Current:</p>
-            <p className="headernote">{stats.current.qty} Left</p>
+            <p className="headernote">{status.current.qty} Left</p>
           </div>
           <div className="col-md-6">
             <p>Done:</p>
-            <p className="headernote">{stats.done.qty} Finished</p>
+            <p className="headernote">{status.done.qty} Finished</p>
           </div>
         </div>
         <div className="row taskbody container-fluid">
           <div className="tasklist">
-            { state.items.map(item => <ListItem state={item} />)}
+            { state.items.map(item =>
+              <ListItem
+                state={item}
+                actions={{ doItem: actions.doItem}}
+                key={item.id}
+              />
+            )}
           </div>
         </div>
         <div className="row taskfooter container-fluid">
-          <button>Add</button>
+          <button onClick={actions.addItem}>Add</button>
         </div>
 
       </div>

@@ -17,7 +17,7 @@ class ListItem extends React.Component {
       doItem: id => console.log('doItem: ' + id)
     };
 
-    state = mockState; actions = mockActions;
+  //  state = mockState; actions = mockActions;
 
     if (state.completed) return null;
 
