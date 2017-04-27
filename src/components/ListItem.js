@@ -7,7 +7,9 @@ class ListItem extends React.Component {
     return nextProps.state !== this.props.state;
   }
   render() {
-    let { state, actions } = this.props;
+    // let { state, actions } = this.props;
+    let state = this.props.state;
+    let actions = this.props.actions;
     let mockState = {
       id: 1,
       detail: 'first'

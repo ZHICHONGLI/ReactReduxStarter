@@ -55,14 +55,14 @@ class Busket extends React.Component {
             { state.items.map(item =>
               <ListItem
                 state={item}
-                actions={{ doItem: actions.doItem}}
+                actions={actions}
                 key={item.id}
               />
             )}
           </div>
         </div>
         <div className="row taskfooter container-fluid">
-          <button onClick={actions.addItem}>Add</button>
+          <button onClick={() => actions.addItem()}>Add</button>
         </div>
 
       </div>
