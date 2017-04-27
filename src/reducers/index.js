@@ -10,7 +10,7 @@
 /* Populated by react-webpack-redux:reducer */
 import { combineReducers } from 'redux';
 
-const item = (state, action) => {
+const item = (state = {}, action) => {
     switch(action.type){
         case "ADD_ITEM":
         return {
@@ -22,7 +22,7 @@ const item = (state, action) => {
         if(state.id !== action.id){
             return state
         }
-        return Object.assign({},state, {
+        return Object.assign({}, state, {
             completed: !state.completed
         })
         default:
@@ -30,19 +30,33 @@ const item = (state, action) => {
     }
 };
 
-const items = (state, action) => {
+const items = (state = [], action) => {
     switch(action.type){
-        case "ADD_TODO":
+        case 'ADD_TODO':
         return [
             ...state,
             item(undefined, action)
         ]
-        case "DO_ITEM":
+        case 'DO_ITEM':
         return state.map(t => item(t, action))
         default:
         return state
     }
 };
 
-const combined = combineReducers(items);
-module.exports = combined;
+const visibilityFilter = (state = 'SHOW_ALL', action) => {
+  switch (action.type) {
+    case 'SET_VISIBILITY_FILTER':
+      return action.filter
+    default:
+      return state
+  }
+};
+
+// the combineReducers should be an object
+const combined = combineReducers({
+    items,
+    visibilityFilter
+});
+// module.exports = combined;
+export default combined;

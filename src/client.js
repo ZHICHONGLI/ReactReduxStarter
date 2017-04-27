@@ -1,11 +1,14 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 import { Provider } from 'react-redux';
+import { createStore } from 'redux';
 import App from './containers/App';
 import configureStore from './stores';
+import combined from './reducers/index';
 
-const store = configureStore();
+// const store = configureStore(combined);
+const store = createStore(combined);
 
 ReactDOM.render(
   <AppContainer>

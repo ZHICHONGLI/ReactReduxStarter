@@ -1,15 +1,16 @@
 import React from 'react';
+import actions from '../actions/itemAction';
 
 require('./inputitem.css');
 
 class InputItem extends React.Component {
   render() {
-    const actions = this.props.actions;
+    // const actions = this.props.actions;
     let input;
     return (
       <div className="inputitem-component">
         <form
-          onSubmit={e => {
+          onSubmit={(e, dispatch) => {
             e.preventDefault();
             if (!input.value.trim()) { return; }
             dispatch(actions.addItem(input.value));
