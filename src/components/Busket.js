@@ -3,6 +3,7 @@ import { connect} from 'react-redux';
 // import cssmodules from 'react-css-modules';
 import ListItem from './ListItem';
 import actions from '../actions/itemAction';
+import InputItem from './InputItem';
 
 
 require('./busket.css');
@@ -62,7 +63,7 @@ class Busket extends React.Component {
           </div>
         </div>
         <div className="row taskfooter container-fluid">
-          <button onClick={() => actions.addItem()}>Add</button>
+          <InputItem actions={actions}/>
         </div>
 
       </div>
