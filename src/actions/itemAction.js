@@ -1,24 +1,14 @@
-// import moduleName from '';
-
-// const prefix = 'item/';
+let nextId = 1;
 
 const actions = {
   addItem: newItem => ({
-    type: 'item/ADD_ITEM',
-    payload: newItem
-  }),
-
-  beginDoItem: () => ({
-    type: 'item/BEGIN_DO_ITEM'
-  }),
-
-  doneDoItem: detail => ({
-    type: 'item/DONE_DO_ITEM',
-    payload: detail
+    type: 'ADD_ITEM',
+    payload: newItem,
+    id: nextId
   }),
 
   doItem: id => ({
-    type: 'item/DO_ITEM',
+    type: 'DO_ITEM',
     payload: id
   })
 

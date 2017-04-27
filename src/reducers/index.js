@@ -10,6 +10,39 @@
 /* Populated by react-webpack-redux:reducer */
 import { combineReducers } from 'redux';
 
-const reducers = {};
-const combined = combineReducers(reducers);
+const item = (state, action) => {
+    switch(action.type){
+        case "ADD_ITEM":
+        return {
+            id: action.id,
+            detail: action.payload,
+            completed: false
+        }
+        case "DO_ITEM":
+        if(state.id !== action.id){
+            return state
+        }
+        return Object.assign({},state, {
+            completed: !state.completed
+        })
+        default:
+            return state
+    }
+};
+
+const items = (state, action) => {
+    switch(action.type){
+        case "ADD_TODO":
+        return [
+            ...state,
+            item(undefined, action)
+        ]
+        case "DO_ITEM":
+        return state.map(t => item(t, action))
+        default:
+        return state
+    }
+};
+
+const combined = combineReducers(items);
 module.exports = combined;
