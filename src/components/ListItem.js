@@ -1,4 +1,8 @@
 import React from 'react';
+import { connect} from 'react-redux';
+import { bindActionCreators } from 'redux';
+import actions from '../actions/itemAction';
+
 
 require('./listitem.css');
 
@@ -7,15 +11,8 @@ class ListItem extends React.Component {
     return nextProps.state !== this.props.state;
   }
   render() {
-    // let { state, actions } = this.props;
-    let state = this.props.state;
-    let actions = this.props.actions;
-
-    let mockActions = {
-      doItem: id => console.log('doItem: ' + id)
-    };
-
-  //  state = mockState; actions = mockActions;
+    const state = this.props.state;
+    const actions = this.props.actions;
 
     if (state.completed) return null;
 
@@ -40,4 +37,8 @@ ListItem.displayName = 'ListItem';
 ListItem.propTypes = {};
 ListItem.defaultProps = {};
 
-export default ListItem;
+const mapDispatchToProps = dispatch => ({
+  actions: bindActionCreators(actions, dispatch)
+});
+
+export default connect(undefined, mapDispatchToProps)(ListItem);

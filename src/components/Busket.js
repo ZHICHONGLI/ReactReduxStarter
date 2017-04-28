@@ -52,7 +52,7 @@ class Busket extends React.Component {
   }
 
   render() {
-    let { Busket } = this.props;
+    let { Busket, actions } = this.props;
     let { items } = Busket;
     let status = this.getStatus();
 //    let state = {};
@@ -106,6 +106,7 @@ class Busket extends React.Component {
           <InputItem actions={actions}/>
         </div>
         <button onClick={() => console.log(this.props)}>test in busket</button>
+        <button onClick={() => actions.addItem('test adding task')}>test add</button>
       </div>
     );
   }

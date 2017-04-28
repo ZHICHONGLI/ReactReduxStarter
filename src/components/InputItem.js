@@ -42,7 +42,7 @@ function mapStateToProps(state) { // eslint-disable-line no-unused-vars
 function mapDispatchToProps(dispatch) {
   /* Populated by react-webpack-redux:action */
  // const actions = {};
-  console.log('dispatch triggered');
+ // console.log('dispatch triggered');
   const actionMap = { actions: bindActionCreators(actions, dispatch) };
   return actionMap;
 }
