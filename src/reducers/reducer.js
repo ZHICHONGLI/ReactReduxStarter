@@ -1,16 +1,3 @@
-/* eslint-disable import/newline-after-import */
-/* Combine all available reducers to a single root reducer.
- *
- * CAUTION: When using the generators, this file is modified in some places.
- *          This is done via AST traversal - Some of your formatting may be lost
- *          in the process - no functionality should be broken though.
- *          This modifications only run once when the generator is invoked - if
- *          you edit them, they are not updated again.
- */
-/* Populated by react-webpack-redux:reducer */
-import { combineReducers } from 'redux';
-import reducer from './reducer';
-
 const initialState = {
 //  newItemId: 2,
   items: [
@@ -42,8 +29,8 @@ const item = (state = {}, action) => {
     }
 };
 
-const items = (state = initialState, action) => {
-    switch(action.type){
+export default (state = initialState, action) => {
+        switch(action.type){
         case 'ADD_TODO':
           let newItems = [
             ...state.items,
@@ -57,10 +44,3 @@ const items = (state = initialState, action) => {
         return state
     }
 };
-
-// the combineReducers should be an object
-const combined = combineReducers({
- Busket: reducer
-});
-// module.exports = combined;
-export default combined;

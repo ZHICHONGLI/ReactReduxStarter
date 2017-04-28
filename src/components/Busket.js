@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect} from 'react-redux';
-// import cssmodules from 'react-css-modules';
+import { bindActionCreators } from 'redux';
 import ListItem from './ListItem';
 import actions from '../actions/itemAction';
 import InputItem from './InputItem';
@@ -9,9 +9,54 @@ import InputItem from './InputItem';
 require('./busket.css');
 
 class Busket extends React.Component {
-  render() {
-    let { state, actions } = this.props;
 
+    /**
+   * get current status of items
+   * qty of left and done
+   */
+  getStatus() {
+    let status = {
+      current: {
+        qty: 0
+      },
+      done: {
+        qty: 0
+      }
+    };
+    this.props.Busket.items.map(item => {
+      const selector = item.completed ? 'done' : 'current';
+      status[selector].qty += 1;
+    });                  
+    return status;
+  }
+
+  /**
+   * get current unfinished items
+   */
+  getItem(items) {
+    let data = [];
+    items.map(item => {
+      if (!item.completed) {
+        data.push(<ListItem
+          state={item}
+          actions={actions}
+          key={item.id} />);
+      }
+    });
+
+    if (!data.length) {
+      data.push(<div className="emptylist">Empty List</div>);
+    }
+
+    return data;
+  }
+
+  render() {
+    let { Busket } = this.props;
+    let { items } = Busket;
+    let status = this.getStatus();
+//    let state = {};
+/*
     const mockState = {
       isDoing: false,
       newItemId: 2,
@@ -38,6 +83,7 @@ class Busket extends React.Component {
       const selector = item.completed ? 'done' : 'current';
       status[selector].qty += 1;
     });
+ */
     return (
       <div className="busket-component">
         <p id="busket">Busket</p>
@@ -53,19 +99,13 @@ class Busket extends React.Component {
         </div>
         <div className="row taskbody container-fluid">
           <div className="tasklist">
-            { state.items.map(item =>
-              <ListItem
-                state={item}
-                actions={actions}
-                key={item.id}
-              />
-            )}
+            { this.getItem(items) }
           </div>
         </div>
         <div className="row taskfooter container-fluid">
           <InputItem actions={actions}/>
         </div>
-
+        <button onClick={() => console.log(this.props)}>test in busket</button>
       </div>
     );
   }
@@ -77,8 +117,16 @@ Busket.defaultProps = {};
 
 function select(state) {
   return {
-    state: state.Busket
+    Busket: state.Busket
   };
 }
 
-export default connect(select)(Busket);
+const mapStateToProps = state => ({
+  Busket: state.Busket
+});
+
+const mapDispatchToProps = dispatch => ({
+  actions: bindActionCreators(actions, dispatch)
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Busket);

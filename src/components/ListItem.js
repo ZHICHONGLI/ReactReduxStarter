@@ -10,10 +10,6 @@ class ListItem extends React.Component {
     // let { state, actions } = this.props;
     let state = this.props.state;
     let actions = this.props.actions;
-    let mockState = {
-      id: 1,
-      detail: 'first'
-    };
 
     let mockActions = {
       doItem: id => console.log('doItem: ' + id)

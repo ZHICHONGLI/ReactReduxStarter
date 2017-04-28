@@ -1,10 +1,10 @@
-let nextId = 1;
+ let nextId = 1;
 
 const actions = {
   addItem: newItem => ({
     type: 'ADD_ITEM',
     payload: newItem,
-    id: nextId
+    id: nextId++
   }),
 
   doItem: id => ({

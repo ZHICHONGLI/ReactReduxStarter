@@ -6,21 +6,25 @@ import actions from '../actions/itemAction';
 require('./inputitem.css');
 
 class InputItem extends React.Component {
+  test() {
+    console.dir(this.props);
+  }
   render() {
     // const actions = this.props.actions;
     let input;
     return (
       <div className="inputitem-component">
         <form
-          onSubmit={(e, dispatch) => {
+          onSubmit={(e) => {
             e.preventDefault();
             if (!input.value.trim()) { return; }
-            dispatch(actions.addItem(input.value));
+            (actions.addItem(input.value));
             input.value = '';
           }}>
           <input ref={node => {input = node}}/>
           <button type="submit">Add</button>
         </form>
+        <button onClick={() => this.test()}>test</button>
       </div>
     );
   }
@@ -38,6 +42,7 @@ function mapStateToProps(state) { // eslint-disable-line no-unused-vars
 function mapDispatchToProps(dispatch) {
   /* Populated by react-webpack-redux:action */
  // const actions = {};
+  console.log('dispatch triggered');
   const actionMap = { actions: bindActionCreators(actions, dispatch) };
   return actionMap;
 }
