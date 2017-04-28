@@ -1,3 +1,14 @@
 .inputitem-component {
-  border: 1px dashed #f00;
+  margin: 5px;
+  background-color: rgba(255, 0, 0, 0.15);
+  border: 1px solid lightgreen
+}
+#inputarea{
+  width: 60%;
+  margin-top:10px;
+  margin-bottom: 5px;
+  margin-left: 20%;
+  display: flex;
+  align-items: center;
+  background-color: #e8ecf9
 }

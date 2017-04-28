@@ -13,7 +13,7 @@ class InputItem extends React.Component {
     // const actions = this.props.actions;
     let input;
     return (
-      <div className="inputitem-component">
+      <div className="inputitem-component row">
         <form
           onSubmit={(e) => {
             e.preventDefault();
@@ -21,8 +21,8 @@ class InputItem extends React.Component {
             (actions.addItem(input.value));
             input.value = '';
           }}>
-          <input ref={node => {input = node}}/>
-          <button type="submit">Add</button>
+          <textarea id="inputarea" type="text" className="form-control" rows="2" ref={node => {input = node}}/>
+          <button type="submit" className="btn btn-success">Add</button>
         </form>
         <button onClick={() => this.test()}>test</button>
       </div>
@@ -40,9 +40,6 @@ function mapStateToProps(state) { // eslint-disable-line no-unused-vars
   return props;
 }
 function mapDispatchToProps(dispatch) {
-  /* Populated by react-webpack-redux:action */
- // const actions = {};
- // console.log('dispatch triggered');
   const actionMap = { actions: bindActionCreators(actions, dispatch) };
   return actionMap;
 }
