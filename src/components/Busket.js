@@ -55,35 +55,7 @@ class Busket extends React.Component {
     let { Busket, actions } = this.props;
     let { items } = Busket;
     let status = this.getStatus();
-//    let state = {};
-/*
-    const mockState = {
-      isDoing: false,
-      newItemId: 2,
-      items: [
-        {
-          id: 1,
-          detail: 'first task',
-          completed: false
-        }
-      ]
-    };
 
-    state = mockState;
-
-    let status = {
-      current: {
-        qty: 0
-      },
-      done: {
-        qty: 0
-      }
-    };
-    state.items.map((item) => {
-      const selector = item.completed ? 'done' : 'current';
-      status[selector].qty += 1;
-    });
- */
     return (
       <div className="busket-component">
         <p id="busket">Busket</p>

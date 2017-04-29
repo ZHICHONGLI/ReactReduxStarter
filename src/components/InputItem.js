@@ -6,8 +6,8 @@ import actions from '../actions/itemAction';
 require('./inputitem.css');
 
 class InputItem extends React.Component {
-  test() {
-    this.props.dispatch(actions.addItem('test adding task'));
+  add(value) {
+    this.props.dispatch(actions.addItem(value));
   }
   render() {
     const actions = this.props.actions;
@@ -18,13 +18,13 @@ class InputItem extends React.Component {
           onSubmit={(e) => {
             e.preventDefault();
             if (!input.value.trim()) { return; }
-            (this.props.dispatch(actions.addItem(input.value)));
+            // (this.props.dispatch(actions.addItem(input.value)));
+            this.add(input.value);
             input.value = '';
           }}>
           <textarea id="inputarea" type="text" className="form-control" rows="2" ref={node => {input = node}}/>
           <button type="submit" className="btn btn-success">Add</button>
         </form>
-        <button onClick={() => this.test()}>test</button>
       </div>
     );
   }

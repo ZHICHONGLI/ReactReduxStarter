@@ -33,7 +33,6 @@ const item = (state = {}, action) => {
 export default (state = initialState, action) => {
         switch (action.type) {
         case 'ADD_ITEM':
-        console.log('reducer_add');
          let newItems = [
             ...state.items,
             item(undefined, action)
