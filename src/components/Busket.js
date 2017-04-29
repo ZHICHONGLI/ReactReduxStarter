@@ -99,8 +99,8 @@ class Busket extends React.Component {
           <InputItem actions={actions}/>
         </div>
         <button className={showSelector=='current'?'currentview':null} disabled={showSelector=='current'} onClick={() => actions.show('current')}>Current</button>
-        <button onClick={() => actions.show('done')} disabled={showSelector=='done'}>Done</button>
-        <button onClick={() => actions.show('all')} disabled={showSelector=='all'}>Show All</button>
+        <button className={showSelector=='done'?'currentview':null} onClick={() => actions.show('done')} disabled={showSelector=='done'}>Done</button>
+        <button className={showSelector=='all'?'currentview':null} onClick={() => actions.show('all')} disabled={showSelector=='all'}>Show All</button>
       </div>
     );
   }
