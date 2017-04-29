@@ -1,5 +1,4 @@
 const initialState = {
-//  newItemId: 2,
   items: [
     {
       id: 1,
@@ -19,15 +18,11 @@ const item = (state = {}, action) => {
         }
         case "DO_ITEM":
         if(state.id !== action.payload){
-            console.log(state);
-            console.log(action);
             return state
         }else{
           let newItem = Object.assign({}, state, {
             completed: !state.completed
           });
-          console.log('reduc_sub_fn');
-          console.log(newItem);
         return newItem
         }
         default:
@@ -36,23 +31,19 @@ const item = (state = {}, action) => {
 };
 
 export default (state = initialState, action) => {
-        switch(action.type){
-        case 'ADD_TODO':
-          let newItems = [
+        switch (action.type) {
+        case 'ADD_ITEM':
+        console.log('reducer_add');
+         let newItems = [
             ...state.items,
             item(undefined, action)
         ];
           let newState = Object.assign({}, state, {items: newItems});
-          console.log('reducer add');
         return newState;
-        case 'DO_ITEM':
-        // return state.items.map(t => item(t, action))
-        //    let newItem = state.items.map(t => item(t, action));
 
-        console.log('reducer do');
+        case 'DO_ITEM':
             newItems = state.items.map(t => item(t, action));
             newState = Object.assign({}, state, {items: newItems});
-        console.dir(newState);
         return newState;
         default:
         return state

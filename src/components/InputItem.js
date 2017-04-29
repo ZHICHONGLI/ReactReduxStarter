@@ -7,10 +7,10 @@ require('./inputitem.css');
 
 class InputItem extends React.Component {
   test() {
-    console.dir(this.props);
+    this.props.dispatch(actions.addItem('test adding task'));
   }
   render() {
-    // const actions = this.props.actions;
+    const actions = this.props.actions;
     let input;
     return (
       <div className="inputitem-component row">
@@ -18,7 +18,7 @@ class InputItem extends React.Component {
           onSubmit={(e) => {
             e.preventDefault();
             if (!input.value.trim()) { return; }
-            (actions.addItem(input.value));
+            (this.props.dispatch(actions.addItem(input.value)));
             input.value = '';
           }}>
           <textarea id="inputarea" type="text" className="form-control" rows="2" ref={node => {input = node}}/>
@@ -43,4 +43,7 @@ function mapDispatchToProps(dispatch) {
   const actionMap = { actions: bindActionCreators(actions, dispatch) };
   return actionMap;
 }
-export default connect(null, mapDispatchToProps)(InputItem);
+const mDTP = dispatch => ({
+  actions: bindActionCreators(actions, dispatch)
+});
+export default connect()(InputItem);
