@@ -81,11 +81,11 @@ class Busket extends React.Component {
       <div className="busket-component">
         <p id="busket">Busket</p>
         <div className="row taskheader">
-          <div className="col-md-6">
+          <div className="col-md-6 col-xs-6">
             <p>Current:</p>
             <p className="headernote">{status.current.qty} Left</p>
           </div>
-          <div className="col-md-6">
+          <div className="col-md-6 col-xs-6">
             <p>Done:</p>
             <p className="headernote">{status.done.qty} Finished</p>
           </div>

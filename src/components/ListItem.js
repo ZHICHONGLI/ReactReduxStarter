@@ -18,14 +18,14 @@ class ListItem extends React.Component {
     // if (state.completed) return null;
 
     return (
-      <div className="listitem-component row vertical-center" style={state.completed?bgComplet:null}>
-        <div className="col-md-2">
+      <div className="listitem-component row" style={state.completed?bgComplet:null}>
+        <div className="col-md-2 col-sm-2 col-xs-12 vertical-center">
           <div className="vertical-center itemhead">Task #{state.id}</div>
         </div>
-        <div className="col-md-8">
+        <div className="col-md-8 col-sm-7 col-xs-12 vertical-center">
           <div className="vertical-center itembody"><span id="taskhead">Task Detail: &nbsp;&nbsp; </span>{state.detail}</div>
         </div>
-        <div className="col-md-2">
+        <div className="col-md-2 col-sm-3 col-xs-12">
           <button className="btn btn-primary itembtn" onClick={() => actions.doItem(state.id)}>{state.completed ? 'Undo' : 'Complete'}</button>
         </div>
       </div>
