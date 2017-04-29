@@ -19,14 +19,13 @@ class ListItem extends React.Component {
     return (
       <div className="listitem-component row vertical-center">
         <div className="col-md-2">
-          image
+          <div className="vertical-center itemhead">Task #{state.id}</div>
         </div>
         <div className="col-md-8">
-          <div className="vertical-center itemhead">Task #{state.id}</div>
           <div className="vertical-center itembody">Task Detail: {state.detail}</div>
         </div>
         <div className="col-md-2">
-          <button className="btn btn-primary" onClick={() => actions.doItem(state.id)}>Complete</button>
+          <button className="btn btn-primary itembtn" onClick={() => actions.doItem(state.id)}>{state.completed ? 'Undo' : 'Complete'}</button>
         </div>
       </div>
     );

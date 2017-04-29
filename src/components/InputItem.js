@@ -22,7 +22,9 @@ class InputItem extends React.Component {
             this.add(input.value);
             input.value = '';
           }}>
-          <textarea id="inputarea" type="text" className="form-control" rows="2" ref={node => {input = node}}/>
+          <textarea id="inputarea" type="text" className="form-control"
+                    rows="2" ref={node => {input = node}}
+                    placeholder='input new  task here' />
           <button type="submit" className="btn btn-success">Add</button>
         </form>
       </div>

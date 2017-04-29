@@ -79,6 +79,7 @@ class Busket extends React.Component {
         </div>
         <button onClick={() => console.log(this.props)}>test in busket</button>
         <button onClick={() => actions.addItem('test adding task')}>test add</button>
+        <button>Show All</button>
       </div>
     );
   }
