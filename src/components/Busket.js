@@ -98,9 +98,9 @@ class Busket extends React.Component {
         <div className="row taskfooter container-fluid">
           <InputItem actions={actions}/>
         </div>
-        <button onClick={() => actions.show('current')}>Current</button>
-        <button onClick={() => actions.show('done')}>Done</button>
-        <button onClick={() => actions.show('all')}>Show All</button>
+        <button className={showSelector=='current'?'currentview':null} disabled={showSelector=='current'} onClick={() => actions.show('current')}>Current</button>
+        <button onClick={() => actions.show('done')} disabled={showSelector=='done'}>Done</button>
+        <button onClick={() => actions.show('all')} disabled={showSelector=='all'}>Show All</button>
       </div>
     );
   }

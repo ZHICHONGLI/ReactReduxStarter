@@ -13,11 +13,12 @@ class ListItem extends React.Component {
   render() {
     const state = this.props.state;
     const actions = this.props.actions;
+    const bgComplet = {backgroundColor: 'rgb(252, 229, 251)'};
 
     // if (state.completed) return null;
 
     return (
-      <div className="listitem-component row vertical-center">
+      <div className="listitem-component row vertical-center" style={state.completed?bgComplet:null}>
         <div className="col-md-2">
           <div className="vertical-center itemhead">Task #{state.id}</div>
         </div>
