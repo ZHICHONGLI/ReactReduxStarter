@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "c3bc3a4e6eb04a5931a3"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "ddaa543a51bc4dffe370"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -8411,7 +8411,7 @@ exports = module.exports = __webpack_require__(51)();
 
 
 // module
-exports.push([module.i, ".listitem-component {\r\n  margin: 5px;\r\n  background-color: #e8ecf9;\r\n  border: 1px solid lightgreen\r\n}\r\n.vertical-center {\r\n  display: flex;\r\n  align-items: center;\r\n}\r\n.itemhead{\r\n  font-size: 15px;\r\n  color: #5274b7;\r\n  margin: 2px\r\n}\r\n.itembody{\r\n  font-size: 18px;\r\n  margin: 2px\r\n}\r\n.itembody > #taskhead{\r\n  font-size: 12px;\r\n  font-weight: 300;\r\n  color: #5274b7\r\n}\r\n.itembtn{\r\n  margin: 10px\r\n}", ""]);
+exports.push([module.i, ".listitem-component {\r\n  margin: 5px;\r\n  background-color: #e8ecf9;\r\n  border: 1px solid lightgreen;\r\n  text-align: center\r\n}\r\n\r\n.vertical-center {\r\n  /*\r\n  display: flex;\r\n  align-items: center;\r\n  */\r\n  display: inline-block;\r\n  vertical-align: middle;\r\n  line-height: 300%\r\n}\r\n\r\n.itemhead{\r\n  font-size: 15px;\r\n  color: #5274b7;\r\n  margin: 2px\r\n}\r\n.itembody{\r\n  font-size: 18px;\r\n  margin: 2px\r\n}\r\n.itembody > #taskhead{\r\n  font-size: 12px;\r\n  font-weight: 300;\r\n  color: #5274b7\r\n}\r\n.itembtn{\r\n  margin: 10px\r\n}", ""]);
 
 // exports
 
@@ -18037,7 +18037,7 @@ var Busket = function (_React$Component) {
         var showSelector = Busket.show;
         var status = this.getStatus();
         //  let showSelector = 'current';
-        return _react2['default'].createElement('div', { className: 'busket-component' }, _react2['default'].createElement('p', { id: 'busket' }, 'Busket'), _react2['default'].createElement('div', { className: 'row taskheader' }, _react2['default'].createElement('div', { className: 'col-md-6' }, _react2['default'].createElement('p', null, 'Current:'), _react2['default'].createElement('p', { className: 'headernote' }, status.current.qty, ' Left')), _react2['default'].createElement('div', { className: 'col-md-6' }, _react2['default'].createElement('p', null, 'Done:'), _react2['default'].createElement('p', { className: 'headernote' }, status.done.qty, ' Finished'))), _react2['default'].createElement('div', { className: 'row taskbody container-fluid' }, _react2['default'].createElement('div', { className: 'tasklist' }, this.getItem(items, showSelector))), _react2['default'].createElement('div', { className: 'row taskfooter container-fluid' }, _react2['default'].createElement(_InputItem2['default'], { actions: actions })), _react2['default'].createElement('button', { className: showSelector == 'current' ? 'currentview' : null, disabled: showSelector == 'current', onClick: function () {
+        return _react2['default'].createElement('div', { className: 'busket-component' }, _react2['default'].createElement('p', { id: 'busket' }, 'Busket'), _react2['default'].createElement('div', { className: 'row taskheader' }, _react2['default'].createElement('div', { className: 'col-md-6 col-xs-6' }, _react2['default'].createElement('p', null, 'Current:'), _react2['default'].createElement('p', { className: 'headernote' }, status.current.qty, ' Left')), _react2['default'].createElement('div', { className: 'col-md-6 col-xs-6' }, _react2['default'].createElement('p', null, 'Done:'), _react2['default'].createElement('p', { className: 'headernote' }, status.done.qty, ' Finished'))), _react2['default'].createElement('div', { className: 'row taskbody container-fluid' }, _react2['default'].createElement('div', { className: 'tasklist' }, this.getItem(items, showSelector))), _react2['default'].createElement('div', { className: 'row taskfooter container-fluid' }, _react2['default'].createElement(_InputItem2['default'], { actions: actions })), _react2['default'].createElement('button', { className: showSelector == 'current' ? 'currentview' : null, disabled: showSelector == 'current', onClick: function () {
             function onClick() {
               return actions.show('current');
             }
@@ -18442,7 +18442,7 @@ var ListItem = function (_React$Component) {
 
         // if (state.completed) return null;
 
-        return _react2['default'].createElement('div', { className: 'listitem-component row vertical-center', style: state.completed ? bgComplet : null }, _react2['default'].createElement('div', { className: 'col-md-2' }, _react2['default'].createElement('div', { className: 'vertical-center itemhead' }, 'Task #', state.id)), _react2['default'].createElement('div', { className: 'col-md-8' }, _react2['default'].createElement('div', { className: 'vertical-center itembody' }, _react2['default'].createElement('span', { id: 'taskhead' }, 'Task Detail: \xA0\xA0 '), state.detail)), _react2['default'].createElement('div', { className: 'col-md-2' }, _react2['default'].createElement('button', { className: 'btn btn-primary itembtn', onClick: function () {
+        return _react2['default'].createElement('div', { className: 'listitem-component row', style: state.completed ? bgComplet : null }, _react2['default'].createElement('div', { className: 'col-md-2 col-sm-2 col-xs-12 vertical-center' }, _react2['default'].createElement('div', { className: 'vertical-center itemhead' }, 'Task #', state.id)), _react2['default'].createElement('div', { className: 'col-md-8 col-sm-7 col-xs-12 vertical-center' }, _react2['default'].createElement('div', { className: 'vertical-center itembody' }, _react2['default'].createElement('span', { id: 'taskhead' }, 'Task Detail: \xA0\xA0 '), state.detail)), _react2['default'].createElement('div', { className: 'col-md-2 col-sm-3 col-xs-12' }, _react2['default'].createElement('button', { className: 'btn btn-primary itembtn', onClick: function () {
             function onClick() {
               return actions.doItem(state.id);
             }
