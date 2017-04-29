@@ -16,6 +16,11 @@
   font-size: 18px;
   margin: 2px
 }
+.itembody > #taskhead{
+  font-size: 12px;
+  font-weight: 300;
+  color: #5274b7
+}
 .itembtn{
   margin: 10px
 }

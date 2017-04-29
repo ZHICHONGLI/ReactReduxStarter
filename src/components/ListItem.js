@@ -23,7 +23,7 @@ class ListItem extends React.Component {
           <div className="vertical-center itemhead">Task #{state.id}</div>
         </div>
         <div className="col-md-8">
-          <div className="vertical-center itembody">Task Detail: {state.detail}</div>
+          <div className="vertical-center itembody"><span id="taskhead">Task Detail: &nbsp;&nbsp; </span>{state.detail}</div>
         </div>
         <div className="col-md-2">
           <button className="btn btn-primary itembtn" onClick={() => actions.doItem(state.id)}>{state.completed ? 'Undo' : 'Complete'}</button>
