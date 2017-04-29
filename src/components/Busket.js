@@ -26,36 +26,57 @@ class Busket extends React.Component {
     this.props.Busket.items.map(item => {
       const selector = item.completed ? 'done' : 'current';
       status[selector].qty += 1;
-    });                  
+    });
     return status;
   }
 
   /**
    * get current unfinished items
    */
-  getItem(items) {
+  getItem(items, showSelector) {
     let data = [];
-    items.map(item => {
-      if (!item.completed) {
-        data.push(<ListItem
-          state={item}
-          actions={actions}
-          key={item.id} />);
-      }
-    });
-
+    if(showSelector == 'current') {
+        items.map(item => {
+          if (!item.completed) {
+            data.push(<ListItem
+              state={item}
+              actions={actions}
+              key={item.id} />);
+          }
+        });
+        console.dir(data);
+    } else if
+    (showSelector == 'done') {
+      items.map(item => {
+        if (item.completed) {
+            data.push(<ListItem
+              state={item}
+              actions={actions}
+              key={item.id} />);
+        }
+      });
+      console.dir(data);
+    } else if
+    (showSelector == 'all'){
+      items.map(item => {
+        data.push(
+          <ListItem state={item} actions={actions} key={item.id} />
+        );
+      });
+      console.dir(data);
+    }
     if (!data.length) {
       data.push(<div className="emptylist">Empty List</div>);
     }
-
     return data;
   }
 
   render() {
     let { Busket, actions } = this.props;
     let { items } = Busket;
+    let showSelector = Busket.show;
     let status = this.getStatus();
-
+  //  let showSelector = 'current';
     return (
       <div className="busket-component">
         <p id="busket">Busket</p>
@@ -71,15 +92,15 @@ class Busket extends React.Component {
         </div>
         <div className="row taskbody container-fluid">
           <div className="tasklist">
-            { this.getItem(items) }
+            { this.getItem(items, showSelector) }
           </div>
         </div>
         <div className="row taskfooter container-fluid">
           <InputItem actions={actions}/>
         </div>
-        <button onClick={() => console.log(this.props)}>test in busket</button>
-        <button onClick={() => actions.addItem('test adding task')}>test add</button>
-        <button>Show All</button>
+        <button onClick={() => actions.show('current')}>Current</button>
+        <button onClick={() => actions.show('done')}>Done</button>
+        <button onClick={() => actions.show('all')}>Show All</button>
       </div>
     );
   }

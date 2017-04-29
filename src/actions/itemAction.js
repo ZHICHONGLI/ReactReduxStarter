@@ -16,19 +16,23 @@ const actions = {
 */
 const actions = {
   addItem: (newItem) => {
-    console.log('addItem action');
+  //  console.log('addItem action');
     const newAction = {
     type: 'ADD_ITEM',
     payload: newItem,
     id: nextId++
   };
-    console.log(newAction);
+   // console.log(newAction);
     return newAction
 },
 
   doItem: id => ({
     type: 'DO_ITEM',
     payload: id
+  }),
+  show: selector => ({
+    type: 'VIEW_SEL',
+    payload: selector
   })
 
 };

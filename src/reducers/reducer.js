@@ -5,7 +5,8 @@ const initialState = {
       detail: 'first task',
       completed: false
     }
-  ]
+  ],
+  show: 'current'
 };
 
 const item = (state = {}, action) => {
@@ -44,6 +45,10 @@ export default (state = initialState, action) => {
             newItems = state.items.map(t => item(t, action));
             newState = Object.assign({}, state, {items: newItems});
         return newState;
+
+        case 'VIEW_SEL':
+            console.log('reducer '+action.payload);
+            return Object.assign({}, state, {show: action.payload});
         default:
         return state
     }

@@ -14,7 +14,7 @@ class ListItem extends React.Component {
     const state = this.props.state;
     const actions = this.props.actions;
 
-    if (state.completed) return null;
+    // if (state.completed) return null;
 
     return (
       <div className="listitem-component row vertical-center">
